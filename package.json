@@ -1,0 +1,15 @@
+{
+  "name": "xaviers-student-guide",
+  "version": "1.0.0",
+  "description": "An app to help students with their college lives.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^1.4.1",
+    "sql.js": "^0.4.0"
+  }
+}
