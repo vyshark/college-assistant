@@ -1,11 +1,20 @@
 <html>
 <head>
 <title>Home</title>
+
 </head>
 <body>
 	<a href="Real-Time.html"> Attendance Calculator</a>
     <p>GPA</p>
     <p>Time Table</p>
+		<p id="displaytable"></p>
 	<p>Food</p>
+	<!-- ........vv SCRIPTS vv..........   -->
+	<script>
+	var db = require('./db');
+	var thetable = db.retreiveFromDB('select * from TimeTable;');
+	document.getElementById('displaytable').innerHTML = db.printTable(thetable);
+	</script>
+	<!-- .......^^ SCRIPTS ^^ ..........    -->
 </body>
 </html>

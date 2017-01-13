@@ -23,11 +23,11 @@ function createWindow () {
 //db.onCloseSave();
 
 
-  mainWindow.loadURL('file://' + __dirname + 'index.html');
+  mainWindow.loadURL('file://' + __dirname + '/Home.html');
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
-BrowserWindow = null;
+mainWindow = null;
   });
 }
 
