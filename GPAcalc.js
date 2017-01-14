@@ -1,4 +1,5 @@
 // JavaScript Document
+		const db = require('./db');
 function showGPA(form)
 {
 	var c1 = parseInt(form.cia1.value);// CIA1 Marks(from db)

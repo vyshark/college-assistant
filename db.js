@@ -1,15 +1,20 @@
+// -------vv IMPORTS vv ----------
+var fs = require('fs');
+var SQL = require('sql.js');
+// -------^^ IMPORTS ^^ ----------
+
 var inputtoDB = function(thequery){
   var fs = require('fs');
   var SQL = require('sql.js');
-  var file = fs.readFileSync('./test.db');
+  var file = fs.readFileSync('./work.db');
 
   // Load the db
   var db = new SQL.Database(file);
  db.run(thequery);
 var data = db.export();
 var thebuffer = new Buffer(data);
-fs.writeFileSync("test.db", thebuffer);
-console.log('done?');
+fs.writeFileSync("work.db", thebuffer);
+//console.log('done?');
 };
 
 var retreiveFromDB = function (thequery) {
@@ -49,11 +54,17 @@ for (var inside in data[0]) {
 
   tablestring+='</table>';
 
-  console.log(tablestring);
+//  console.log(tablestring);
   return tablestring;
+};
+
+var retreiveSingleFromDB = function(thequery){
+  var lolol=retreiveFromDB(thequery);
+return (db.printTable(lolol).split('<td>')[1].split('</td>')[0]);
 };
 //-------------------vv MODULES vv ----------------
 module.exports.printTable = printTable;
 module.exports.inputtoDB = inputtoDB;
 module.exports.retreiveFromDB = retreiveFromDB;
+module.exports.retreiveSingleFromDB = retreiveSingleFromDB;
 //--------------------^^ MODULES ^^ ----------------

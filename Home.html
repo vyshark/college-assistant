@@ -7,13 +7,15 @@
 	<a href="Real-Time.html"> Attendance Calculator</a>
     <p>GPA</p>
     <p>Time Table</p>
-		<p id="displaytable"></p>
+		<p id="testo"> </p>
+		<p id="displaytable"> </p>
 	<p>Food</p>
 	<!-- ........vv SCRIPTS vv..........   -->
 	<script>
 	var db = require('./db');
 	var thetable = db.retreiveFromDB('select * from TimeTable;');
 	document.getElementById('displaytable').innerHTML = db.printTable(thetable);
+	document.getElementById('testo').innerHTML = db.retreiveSingleFromDB("select Lecture_2 from TimeTable where day='Monday';")
 	</script>
 	<!-- .......^^ SCRIPTS ^^ ..........    -->
 </body>

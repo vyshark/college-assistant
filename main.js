@@ -39,11 +39,11 @@ function createTrayIcon ( ) {
      submenu : [
         {
           label: 'IT',
-          click(){ console.log('here a function can be put to download alternate mydb.db from remote server') }
+          click(){ console.log('here a function can be put to download alternate mydb.db from remote server'); }
         },
         {
           label: 'Socio',
-          click(){ console.log(' similarly here a function can be put to download alternate mydb.db from remote server') }
+          click(){ console.log(' similarly here a function can be put to download alternate mydb.db from remote server'); }
         }
               ]
 
