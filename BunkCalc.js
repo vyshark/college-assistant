@@ -1,26 +1,87 @@
 // JavaScript Document
-
-function getAttend()
+function getButtons(rid)
 {
-		var a=parseInt(document.getElementById('num1').value);//no. of lectures attended
-		var t=parseInt(document.getElementById('num2').value);//total no of lectures
+		
+		rid=rid.substring(1,2);
+		for(var i=1;i<7;i++)
+		{
+			for(var j=1;j<3;j++)
+			{
+				var b="b"
+				b=b+i;
+				b=b+j;
+				document.getElementById(b).style.display='none';
+			}
+		}
+		var b1="b"+rid+"1";
+		var b2="b"+rid+"2";
+		document.getElementById(b1).style.display='block';
+		document.getElementById(b2).style.display='block';
+}
+function changeVal(id)
+{
+	var rno = id.substring(1,2);
+	var button_type = parseInt(id.substring(2,3));
+	var n1="num";
+	n1=n1+rno;
+	var n2=n1;
+	n1=n1+1;
+	n2=n2+2;
+	var num1 = parseInt(document.getElementById(n1).value);
+	var num2 = parseInt(document.getElementById(n2).value);
+	if(button_type==1)
+	{
+		num1=num1+1;
+		document.getElementById(n1).value=num1;
+		getAttend(1,n1);		
+	}
+	if(button_type==2)
+	{
+		num2=num2+1;
+		document.getElementById(n2).value=num2;
+		callAttend(n2);
+	}
+}
+function callAttend(id)
+{
+	var x = id.substring(0,4);
+	x=x+1;
+	getAttend(0,x);
+}
+function getAttend(z,id)
+{
+		var tid=id.substring(0,4);
+		var n=id.substring(3,4);
+		tid=tid+2;
+		var a=parseInt(document.getElementById(id).value);
+		var t=parseInt(document.getElementById(tid).value);
+		var cid = 's';
+		cid=cid+n;
+		if(z==1)
+		{
+			t=t+1;	
+			document.getElementById(tid).value=t;
+		}
 		//displays attendance
 		if(isNaN(a+t)||t<a)
 		{
-			document.getElementById('num2').value=a;
+			document.getElementById(tid).value=a;
 			t=a;
 		}
-		
 		if((a/t)>-1)
 		{
-			document.getElementById('here').value=((a/t)*100);
+			document.getElementById(cid).value=((a/t)*100);
 		}
 }
-function calcBunk()
+function calcBunk(id)
 {
-	
-	var a=parseInt(document.getElementById('num1').value);//attended
-	var t=parseInt(document.getElementById('num2').value);//total
+	var n1='num';
+	var n1= n1+id.substring(1,2);
+	var n2=n1;
+	n1=n1+1;
+	n2=n2+2;
+	var a=parseInt(document.getElementById(n1).value);
+	var t=parseInt(document.getElementById(n2).value);
 	//when current attendance more than 75
 	if((a*100/t)>75)
  	{
