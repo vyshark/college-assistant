@@ -1,7 +1,7 @@
 <html>
 <head>
 <title>Home</title>
-
+<script>window.$ = window.jQuery = require("./jquery.js")</script>
 </head>
 <body>
 	<a href="Real-Time.html"> Attendance Calculator</a>
@@ -10,13 +10,45 @@
 		<p id="testo"> </p>
 		<p id="displaytable"> </p>
 	<p>Food</p>
+	<table id="tableid" border=2>
+		<tr>
+				<th>col1</th>
+				<th>col2</th>
+				<th>col3</th>
+				<th>col4</th>
+		</tr>
+		<tr>
+				<td>mainrow1</td>
+				<td>item1</td>
+				<td>item2</td>
+				<td>item3</td>
+		</tr>
+		<tr>
+				<td>mainrow2</td>
+				<td>item11</td>
+				<td>item22</td>
+				<td>item33</td>
+		</tr>
+	</table>
+	<p id='okaythen'> </p>
 	<!-- ........vv SCRIPTS vv..........   -->
 	<script>
-	var db = require('./db');
-	var thetable = db.retreiveFromDB('select * from TimeTable;');
-	document.getElementById('displaytable').innerHTML = db.printTable(thetable);
-	document.getElementById('testo').innerHTML = db.retreiveSingleFromDB("select Lecture_2 from TimeTable where day='Monday';")
+var column;
+var day;
+var row;
+	$('document').ready(function(){
+	$('td').on('click', function(){
+column=$(this).siblings().addBack().index(this);
+day=$(this).siblings().first().html();
+row=$('#tableid tr:first-child').get(column);// SOME WORK LEFT
+
+	$('#okaythen').append(day)
+	$('#okaythen').html(row);
+
+	});
+	})
 	</script>
+
 	<!-- .......^^ SCRIPTS ^^ ..........    -->
 </body>
 </html>
