@@ -1,13 +1,14 @@
 // JavaScript Document
+var db=require('./db');
 function getButtons(rid)
 {
-		
+
 		rid=rid.substring(1,2);
 		for(var i=1;i<7;i++)
 		{
 			for(var j=1;j<3;j++)
 			{
-				var b="b"
+				var b="b";
 				b=b+i;
 				b=b+j;
 				document.getElementById(b).style.display='none';
@@ -33,7 +34,7 @@ function changeVal(id)
 	{
 		num1=num1+1;
 		document.getElementById(n1).value=num1;
-		getAttend(1,n1);		
+		getAttend(1,n1);
 	}
 	if(button_type==2)
 	{
@@ -59,7 +60,7 @@ function getAttend(z,id)
 		cid=cid+n;
 		if(z==1)
 		{
-			t=t+1;	
+			t=t+1;
 			document.getElementById(tid).value=t;
 		}
 		//displays attendance
@@ -76,7 +77,7 @@ function getAttend(z,id)
 function calcBunk(id)
 {
 	var n1='num';
-	var n1= n1+id.substring(1,2);
+	 n1= n1+id.substring(1,2);
 	var n2=n1;
 	n1=n1+1;
 	n2=n2+2;
@@ -101,9 +102,9 @@ function calcBunk(id)
 function showBunk(a,t)
 {
 	//calculates number of lectures you can miss
-	var miss = (((4*a)-(3*t))/3); 
+	var miss = (((4*a)-(3*t))/3);
 	miss = round_down(miss);//remove decimal place and round down
-	if(miss==0)
+	if(miss===0)
 	{
 		alert("You need to attend the next lecture");//display approporiate message
 	}
@@ -127,4 +128,59 @@ function round_down(n)
 	//used to get rid of decimal point and get lower bound
 	var temp=Math.floor(n);
 	return temp;
+}
+
+function enterInDB(){
+	var per401=document.getElementById('s1').value;
+	var per402=document.getElementById('s2').value;
+	var per403=document.getElementById('s3').value; ////Attendance_percentage
+	var per404=document.getElementById('s4').value;
+	var per405=document.getElementById('s5').value;
+	var per406=document.getElementById('s6').value;
+
+	var num12=document.getElementById('num12').value;
+	var num22=document.getElementById('num22').value;
+	var num32=document.getElementById('num32').value;////Total_lectures
+	var num42=document.getElementById('num42').value;
+	var num52=document.getElementById('num52').value;
+	var num62=document.getElementById('num62').value;
+
+	var num11=document.getElementById('num11').value;
+	var num21=document.getElementById('num21').value;
+	var num31=document.getElementById('num31').value;////lectures_attended
+	var num41=document.getElementById('num41').value;
+	var num51=document.getElementById('num51').value;
+	var num61=document.getElementById('num61').value;
+
+db.inputtoDB("update Attendance set Lectures_attended="+ num11 + ",Total_lectures=" + num12 + ",Attendance_percentage=" + per401 + " where Subject='ITS_401'");
+db.inputtoDB("update Attendance set Lectures_attended=" + num21 + ",Total_lectures=" + num22 + ",Attendance_percentage=" + per402 + " where Subject='ITS_402'");
+db.inputtoDB("update Attendance set Lectures_attended=" + num31 + ",Total_lectures=" + num32 + ",Attendance_percentage=" + per403 + " where Subject='ITS_403'");
+db.inputtoDB("update Attendance set Lectures_attended=" + num41 + ",Total_lectures=" + num42 + ",Attendance_percentage=" + per404 + " where Subject='ITS_404'");
+db.inputtoDB("update Attendance set Lectures_attended=" + num51 + ",Total_lectures=" + num52 + ",Attendance_percentage=" + per405 + " where Subject='ITS_405'");
+db.inputtoDB("update Attendance set Lectures_attended=" + num61 + ",Total_lectures=" + num62 + ",Attendance_percentage=" + per406 + " where Subject='ITS_406'");
+
+window.location.href = "./Home.html";
+}
+
+function enterFromDB(){
+	document.getElementById('num11').value=db.retreiveSingleFromDB("select Lectures_attended from Attendance where Subject='ITS_401'");
+	document.getElementById('num21').value=db.retreiveSingleFromDB("select Lectures_attended from Attendance where Subject='ITS_402'");
+	document.getElementById('num31').value=db.retreiveSingleFromDB("select Lectures_attended from Attendance where Subject='ITS_403'");
+	document.getElementById('num41').value=db.retreiveSingleFromDB("select Lectures_attended from Attendance where Subject='ITS_404'");
+	document.getElementById('num51').value=db.retreiveSingleFromDB("select Lectures_attended from Attendance where Subject='ITS_405'");
+	document.getElementById('num61').value=db.retreiveSingleFromDB("select Lectures_attended from Attendance where Subject='ITS_406'");
+
+	document.getElementById('num12').value=db.retreiveSingleFromDB("select Total_lectures from Attendance where Subject='ITS_401'");
+	document.getElementById('num22').value=db.retreiveSingleFromDB("select Total_lectures from Attendance where Subject='ITS_402'");
+	document.getElementById('num32').value=db.retreiveSingleFromDB("select Total_lectures from Attendance where Subject='ITS_403'");
+	document.getElementById('num42').value=db.retreiveSingleFromDB("select Total_lectures from Attendance where Subject='ITS_404'");
+	document.getElementById('num52').value=db.retreiveSingleFromDB("select Total_lectures from Attendance where Subject='ITS_405'");
+	document.getElementById('num62').value=db.retreiveSingleFromDB("select Total_lectures from Attendance where Subject='ITS_406'");
+
+	document.getElementById('s1').value=db.retreiveSingleFromDB("select Attendance_percentage from Attendance where Subject='ITS_401'");
+	document.getElementById('s2').value=db.retreiveSingleFromDB("select Attendance_percentage from Attendance where Subject='ITS_402'");
+	document.getElementById('s3').value=db.retreiveSingleFromDB("select Attendance_percentage from Attendance where Subject='ITS_403'");
+	document.getElementById('s4').value=db.retreiveSingleFromDB("select Attendance_percentage from Attendance where Subject='ITS_404'");
+	document.getElementById('s5').value=db.retreiveSingleFromDB("select Attendance_percentage from Attendance where Subject='ITS_405'");
+	document.getElementById('s6').value=db.retreiveSingleFromDB("select Attendance_percentage from Attendance where Subject='ITS_406'");
 }

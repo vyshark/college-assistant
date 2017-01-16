@@ -6,14 +6,14 @@ var SQL = require('sql.js');
 var inputtoDB = function(thequery){
   var fs = require('fs');
   var SQL = require('sql.js');
-  var file = fs.readFileSync('./work.db');
+  var file = fs.readFileSync('./test.db');
 
   // Load the db
   var db = new SQL.Database(file);
  db.run(thequery);
 var data = db.export();
 var thebuffer = new Buffer(data);
-fs.writeFileSync("work.db", thebuffer);
+fs.writeFileSync("test.db", thebuffer);
 //console.log('done?');
 };
 

@@ -4,6 +4,7 @@
 </script>
 </head>
 <body>
+	<input type="button" style="float:left" value="back" onclick="enterInDB()"><br>
 	<table>
     <tr>
     <th>Subject</th>
@@ -11,7 +12,7 @@
     <th>Total</th>
     <th>Attendance</th>
     </tr>
-    
+
     <tr id="R1" onClick="getButtons(this.id)">
     <td>ITS 4.01</td>
 	<td><input type="text" id="num11" value="0" onChange="getAttend(1,this.id)" placeholder="Attended"></td>
@@ -20,7 +21,7 @@
     <td><input style="display:none" type="button" id="b11" value="I Attended A Lecture" onClick="changeVal(this.id)"></td>
     <td><input style="display:none" type="button" id="b12" value="I Missed A Lecture" onClick="changeVal(this.id)"></td>
     </tr>
-    
+
     <tr id="R2" onClick="getButtons(this.id)">
     <td>ITS 4.02</td>
 	<td><input type="text" id="num21" value="0" onChange="getAttend(1,this.id)" placeholder="Attended"></td>
@@ -29,7 +30,7 @@
     <td><input style="display:none" type="button" id="b21" value="I Attended A Lecture" onClick="changeVal(this.id)"></td>
     <td><input style="display:none" type="button" id="b22" value="I Missed A Lecture" onClick="changeVal(this.id)"></td>
     </tr>
-    
+
     <tr id="R3" onClick="getButtons(this.id)">
     <td>ITS 4.03</td>
 	<td><input type="text" id="num31" value="0" onChange="getAttend(1,this.id)" placeholder="Attended"></td>
@@ -38,7 +39,7 @@
     <td><input style="display:none" type="button" id="b31" value="I Attended A Lecture" onClick="changeVal(this.id)"></td>
     <td><input style="display:none" type="button" id="b32" value="I Missed A Lecture" onClick="changeVal(this.id)"></td>
     </tr>
-    
+
     <tr id="R4" onClick="getButtons(this.id)">
     <td>ITS 4.04</td>
 	<td><input type="text" id="num41" value="0" onChange="getAttend(1,this.id)" placeholder="Attended"></td>
@@ -47,7 +48,7 @@
     <td><input style="display:none" type="button" id="b41" value="I Attended A Lecture" onClick="changeVal(this.id)"></td>
     <td><input style="display:none" type="button" id="b42" value="I Missed A Lecture" onClick="changeVal(this.id)"></td>
     </tr>
-    
+
     <tr id="R5" onClick="getButtons(this.id)">
     <td>ITS 4.05</td>
 	<td><input type="text" id="num51" value="0" onChange="getAttend(1,this.id)" placeholder="Attended"></td>
@@ -56,7 +57,7 @@
     <td><input style="display:none" type="button" id="b51" value="I Attended A Lecture" onClick="changeVal(this.id)"></td>
     <td><input style="display:none" type="button" id="b52" value="I Missed A Lecture" onClick="changeVal(this.id)"></td>
     </tr>
-    
+
     <tr id="R6" onClick="getButtons(this.id)">
     <td>ITS 4.06</td>
 	<td><input type="text" id="num61" value="0" onChange="getAttend(1,this.id)" placeholder="Attended"></td>
@@ -65,10 +66,11 @@
     <td><input style="display:none" type="button" id="b61" value="I Attended A Lecture" onClick="changeVal(this.id)"></td>
     <td><input style="display:none" type="button" id="b62" value="I Missed A Lecture" onClick="changeVal(this.id)"></td>
     </tr>
-    
-    
-    
-    
-    
+
+
+<script>
+enterFromDB();
+</script>
+
 </body>
 </html>
