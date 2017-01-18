@@ -1,25 +1,20 @@
 // -------vv IMPORTS vv ----------
 var fs = require('fs');
-var SQL = require('sql.js');
+var SQL = require('./node_modules/sql.js/js/sql-memory-growth.js');
 // -------^^ IMPORTS ^^ ----------
 
 var inputtoDB = function(thequery){
-  var fs = require('fs');
-  var SQL = require('sql.js');
+
   var file = fs.readFileSync('./test.db');
 
-  // Load the db
   var db = new SQL.Database(file);
  db.run(thequery);
 var data = db.export();
 var thebuffer = new Buffer(data);
 fs.writeFileSync("test.db", thebuffer);
-//console.log('done?');
 };
 
 var retreiveFromDB = function (thequery) {
-  var fs = require('fs');
-  var SQL = require('sql.js');
   var file = fs.readFileSync('./test.db');
 
   // Load the db
