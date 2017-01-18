@@ -1,5 +1,5 @@
 // JavaScript Document
-		const db = require('./db');
+		var db = require('./db');
 function showGPA(form)
 {
 	var c1 = parseInt(form.cia1.value);// CIA1 Marks(from db)
@@ -72,4 +72,89 @@ function getCGPA()
 	alert(cgpa);
 	cgpa=cgpa/18;
 	document.getElementById('cgpa').value=cgpa;
+}
+function enterInDB(){
+var sub1=document.getElementById('sub1s').innerHTML;
+var sub2=document.getElementById('sub2s').innerHTML;
+var sub3=document.getElementById('sub3s').innerHTML;
+var sub4=document.getElementById('sub4s').innerHTML;
+var sub5=document.getElementById('sub5s').innerHTML;
+var sub6=document.getElementById('sub6s').innerHTML;
+
+
+var sub1c1=document.getElementById('sub1c1').value;
+var sub1c2=document.getElementById('sub1c2').value;
+var sub1es=document.getElementById('sub1es').value;
+var sub1ts=document.getElementById('sub1ts').value;
+var sub1gpa=document.getElementById('sub1gpa').value;
+
+
+var sub2c1=document.getElementById('sub2c1').value;
+var sub2c2=document.getElementById('sub2c2').value;
+var sub2es=document.getElementById('sub2es').value;
+var sub2ts=document.getElementById('sub2ts').value;
+var sub2gpa=document.getElementById('sub2gpa').value;
+
+
+var sub3c1=document.getElementById('sub3c1').value;
+var sub3c2=document.getElementById('sub3c2').value;
+var sub3es=document.getElementById('sub3es').value;
+var sub3ts=document.getElementById('sub3ts').value;
+var sub3gpa=document.getElementById('sub3gpa').value;
+
+
+var sub4c1=document.getElementById('sub4c1').value;
+var sub4c2=document.getElementById('sub4c2').value;
+var sub4es=document.getElementById('sub4es').value;
+var sub4ts=document.getElementById('sub4ts').value;
+var sub4gpa=document.getElementById('sub4gpa').value;
+
+
+var sub5c1=document.getElementById('sub5c1').value;
+var sub5c2=document.getElementById('sub5c2').value;
+var sub5es=document.getElementById('sub5es').value;
+var sub5ts=document.getElementById('sub5ts').value;
+var sub5gpa=document.getElementById('sub5gpa').value;
+
+var sub6c1=document.getElementById('sub6c1').value;
+var sub6c2=document.getElementById('sub6c2').value;
+var sub6es=document.getElementById('sub6es').value;
+var sub6ts=document.getElementById('sub6ts').value;
+var sub6gpa=document.getElementById('sub6gpa').value;
+
+db.inputtoDB("update GPAC set CIA1_Marks=" + sub1c1 + ", CIA2_Marks=" + sub1c2 + ", Endsem_Marks=" + sub1es + ", Total_Marks=" + sub1ts + " , GPA=" + sub1gpa + " where Subject='"+sub1+"';");
+db.inputtoDB("update GPAC set CIA1_Marks=" + sub2c1 + ", CIA2_Marks=" + sub2c2 + ", Endsem_Marks=" + sub2es + ", Total_Marks=" + sub2ts + " , GPA=" + sub2gpa + " where Subject='"+sub1+"';");
+db.inputtoDB("update GPAC set CIA1_Marks=" + sub3c1 + ", CIA2_Marks=" + sub3c2 + ", Endsem_Marks=" + sub3es + ", Total_Marks=" + sub3ts + " , GPA=" + sub3gpa + " where Subject='"+sub3+"';");
+db.inputtoDB("update GPAC set CIA1_Marks=" + sub4c1 + ", CIA2_Marks=" + sub4c2 + ", Endsem_Marks=" + sub4es + ", Total_Marks=" + sub4ts + " , GPA=" + sub4gpa + " where Subject='"+sub4+";");
+db.inputtoDB("update GPAC set CIA1_Marks=" + sub5c1 + ", CIA2_Marks=" + sub5c2 + ", Endsem_Marks=" + sub5es + ", Total_Marks=" + sub5ts + " , GPA=" + sub5gpa + " where Subject='"+sub5+";");
+db.inputtoDB("update GPAC set CIA1_Marks=" + sub6c1 + ", CIA2_Marks=" + sub6c2 + ", Endsem_Marks=" + sub6es + ", Total_Marks=" + sub6ts + " , GPA=" + sub6gpa + " where Subject='"+sub6+";");
+
+window.location.href='Home.html';
+}
+
+function enterFromDB(){
+
+	document.getElementById('sub1c1').value=db.retreiveSingleFromDB("select CIA1_Marks from GPAC where Subject='"+ document.getElementById('sub1s').innerHTML +"';");
+	document.getElementById('sub2c1').value=db.retreiveSingleFromDB("select CIA1_Marks from GPAC where Subject='"+ document.getElementById('sub2s').innerHTML +"';");
+	document.getElementById('sub3c1').value=db.retreiveSingleFromDB("select CIA1_Marks from GPAC where Subject='"+ document.getElementById('sub3s').innerHTML +"';");
+
+	document.getElementById('sub1c2').value=db.retreiveSingleFromDB("select CIA2_Marks from GPAC where Subject='"+ document.getElementById('sub1s').innerHTML +"';");
+	document.getElementById('sub2c2').value=db.retreiveSingleFromDB("select CIA2_Marks from GPAC where Subject='"+ document.getElementById('sub2s').innerHTML +"';");
+	document.getElementById('sub3c2').value=db.retreiveSingleFromDB("select CIA2_Marks from GPAC where Subject='"+ document.getElementById('sub3s').innerHTML +"';");
+
+	document.getElementById('sub1es').value=db.retreiveSingleFromDB("select EndSem_Marks from GPAC where Subject='"+ document.getElementById('sub1s').innerHTML +"';");
+	document.getElementById('sub2es').value=db.retreiveSingleFromDB("select EndSem_Marks from GPAC where Subject='"+ document.getElementById('sub2s').innerHTML +"';");
+	document.getElementById('sub3es').value=db.retreiveSingleFromDB("select EndSem_Marks from GPAC where Subject='"+ document.getElementById('sub3s').innerHTML +"';");
+
+	document.getElementById('sub4c1').value=db.retreiveSingleFromDB("select CIA1_Marks from GPAC where Subject='"+ document.getElementById('sub4s').innerHTML +"';");
+	document.getElementById('sub5c1').value=db.retreiveSingleFromDB("select CIA1_Marks from GPAC where Subject='"+ document.getElementById('sub5s').innerHTML +"';");
+	document.getElementById('sub6c1').value=db.retreiveSingleFromDB("select CIA1_Marks from GPAC where Subject='"+ document.getElementById('sub6s').innerHTML +"';");
+
+	document.getElementById('sub4c2').value=db.retreiveSingleFromDB("select CIA2_Marks from GPAC where Subject='"+ document.getElementById('sub4s').innerHTML +"';");
+	document.getElementById('sub5c2').value=db.retreiveSingleFromDB("select CIA2_Marks from GPAC where Subject='"+ document.getElementById('sub5s').innerHTML +"';");
+	document.getElementById('sub6c2').value=db.retreiveSingleFromDB("select CIA2_Marks from GPAC where Subject='"+ document.getElementById('sub6s').innerHTML +"';");
+
+	document.getElementById('sub4es').value=db.retreiveSingleFromDB("select EndSem_Marks from GPAC where Subject='"+ document.getElementById('sub4s').innerHTML +"';");
+	document.getElementById('sub5es').value=db.retreiveSingleFromDB("select EndSem_Marks from GPAC where Subject='"+ document.getElementById('sub5s').innerHTML +"';");
+	document.getElementById('sub6es').value=db.retreiveSingleFromDB("select EndSem_Marks from GPAC where Subject='"+ document.getElementById('sub6s').innerHTML +"';");
 }

@@ -1,108 +1,73 @@
 <html>
 <head>
-	<script>
-	var tid;
-	function getMenu(id)
-	{
-		document.getElementById('ddmenu').style.display='block';
-		tid=id;
-	}
-	function getValue()
-	{
-		var selected = document.getElementById('menu');
-		var subj = selected.options[selected.selectedIndex].text;
-		document.getElementById(tid).innerHTML=subj;
-		document.getElementById('ddmenu').style.display='none';
-	}
-	</script>
+	<script>window.$ = window.jQuery = require("./jquery.js")</script>
 </head>
 <body>
 
 	<div id="ddmenu" align="right" style="display:none;position:absolute;right:0;bottom:0;border:solid #F00">
     <select id="menu" onChange="getValue()">
-    	<option value="Sub1">Sub1</option>
-    	<option value="Sub2">Sub2</option>
-    	<option value="Sub3">Sub3</option>
-        <option value="Sub4">Sub4</option>
-        <option value="Sub5">Sub5</option>
-        <option value="Sub6">Sub6</option>
+			<option value="-"> - </option>
+    	<option value="CFC">CFC</option>
+        <option value="DS">DS</option>
+    	<option value="SE">SE</option>
+        <option value="MOS">MOS</option>
+        <option value="STOR">STOR</option>
+    	<option value="MM">MM</option>
+    	<option value="practicals:STOR">practicals:STOR</option>
+    	<option value="practicals:MOS">practicals:STOR</option>
+    	<option value="practicals:MM">practicals:STOR</option>
+    	<option value="practicals:DS">practicals:STOR</option>
     </select>
     </div>
-
-	<table name="TT">
-    <tr>
-    <th> Day </th>
-    <th> 8:00-8:50 </th>
-    <th> 8:50-9:40 </th>
-    <th> 9:40-10:30 </th>
-    <th> 10:30-11:20 </th>
-    <th> 11:20-12:10 </th>
-    <th> 12:10-1:00 </th>
-    <th> 1:00-1:50 </th>
-    <th> 1:50-2:40 </th>
-    <th> 2:40-3:30 </th>
-    <th> 3:30-4:20 </th>
-	</tr>
-    
-    <tr>
-    <th rowspan="2"> Monday </th>
-    <th id="m1" onClick="getMenu(this.id)"> </th>
-    <th> <input type="text" id="m2" onClick="getMenu(this.id)"> </th>
-    <th> <input type="text" id="m3" onClick="getMenu(this.id)"> </th>
-    <th> <input type="text" id="m4" onClick="getMenu(this.id)"> </th>
-    <th> <input type="text" id="m5" onClick="getMenu(this.id)"> </th>
-    <th> <input type="text" id="m6" onClick="getMenu(this.id)"> </th>
-    <th> <input type="text" id="m7" onClick="getMenu(this.id)"> </th>
-    <th> <input type="text" id="m8" onClick="getMenu(this.id)"> </th>
-    <th> <input type="text" id="m9" onClick="getMenu(this.id)"> </th>
-    <th> <input type="text" id="m10" onClick="getMenu(this.id)"> </th>
-	</tr>
-    
-    <tr>
-    <th> <input type="text" id="mlr1">  </th>
-    <th> <input type="text" id="mlr2"> </th>
-    <th> <input type="text" id="mlr3"> </th>
-    <th> <input type="text" id="mlr4"> </th>
-    <th> <input type="text" id="mlr5"> </th>
-    <th> <input type="text" id="mlr6"> </th>
-    <th> <input type="text" id="mlr7"> </th>
-    <th> <input type="text" id="mlr8"> </th>
-    <th> <input type="text" id="mlr9"> </th>
-    <th> <input type="text" id="mlr10"> </th>
-	</tr>
-
 
 	<p id="displaytable"> </p>
 	<!-- ........vv SCRIPTS vv..........   -->
 	<script>
+	var day; //neeeded
+	var row; //needed
+	var queryString='';
+	var pseudoid;
+	var subj;
 	var db = require('./db');
 	var thetable = db.retreiveFromDB('select * from TimeTable;');
 	document.getElementById('displaytable').innerHTML = db.printTable(thetable);
-	
-	document.getElementById('m1').value = db.retreiveSingleFromDB("select Lecture_1 from TimeTable where day='Monday';")
-	document.getElementById('m2').value = db.retreiveSingleFromDB("select Lecture_2 from TimeTable where day='Monday';")
-	document.getElementById('m3').value = db.retreiveSingleFromDB("select Lecture_3 from TimeTable where day='Monday';")
-	document.getElementById('m4').value = db.retreiveSingleFromDB("select Lecture_4 from TimeTable where day='Monday';")
-	document.getElementById('m5').value = db.retreiveSingleFromDB("select Lecture_5 from TimeTable where day='Monday';")
-	document.getElementById('m6').value = db.retreiveSingleFromDB("select Lecture_6 from TimeTable where day='Monday';")
-	document.getElementById('m7').value = db.retreiveSingleFromDB("select Lecture_7 from TimeTable where day='Monday';")
-	document.getElementById('m8').value = db.retreiveSingleFromDB("select Lecture_8 from TimeTable where day='Monday';")
-	document.getElementById('m9').value = db.retreiveSingleFromDB("select Lecture_9 from TimeTable where day='Monday';")
-	document.getElementById('m10').value = db.retreiveSingleFromDB("select Lecture_10 from TimeTable where day='Monday';")
-	
-    document.getElementById('mlr1').value = db.retreiveSingleFromDB("select LR_1 from LectureRooms where Day='Monday';")
-	document.getElementById('mlr2').value = db.retreiveSingleFromDB("select LR_2 from LectureRooms where Day='Monday';")
-	document.getElementById('mlr3').value = db.retreiveSingleFromDB("select LR_3 from LectureRooms where Day='Monday';")
-	document.getElementById('mlr4').value = db.retreiveSingleFromDB("select LR_4 from LectureRooms where Day='Monday';")
-	document.getElementById('mlr5').value = db.retreiveSingleFromDB("select LR_5 from LectureRooms where Day='Monday';")
-	document.getElementById('mlr6').value = db.retreiveSingleFromDB("select LR_6 from LectureRooms where Day='Monday';")
-	document.getElementById('mlr7').value = db.retreiveSingleFromDB("select LR_7 from LectureRooms where Day='Monday';")
-	document.getElementById('mlr8').value = db.retreiveSingleFromDB("select LR_8 from LectureRooms where Day='Monday';")
-	document.getElementById('mlr9').value = db.retreiveSingleFromDB("select LR_9 from LectureRooms where Day='Monday';")
-	document.getElementById('mlr10').value = db.retreiveSingleFromDB("select LR_10 from LectureRooms where Day='Monday';")
-	
+
+
+
+	$('document').ready(function(){
+			$('td').on('click', function(){
+					pseudoid=$(this);
+					var column=$(this).siblings().addBack().index(this);
+					column++;
+					day=$(this).siblings().first().html();
+					var rowstring='#tableid th:nth-of-type(' + column + ')';
+					row=$(rowstring).html();// SOME WORK LEFT
+					$('#ddmenu').show();
+				//	var newdata=getValue();
+				//	alert(newdata);
+
+
+	});
+
+
+	})
+
+	function getValue()
+	{
+		var selected = document.getElementById('menu');
+		subj = selected.options[selected.selectedIndex].text;
+		$(pseudoid).html(subj)
+		document.getElementById('ddmenu').style.display='none';
+		//alert(day + '..' + row + '..' + subj);
+   queryString+="update TimeTable set " + row + "='"	+ subj + "' where Day='" + day + "';" ;
+	 alert(queryString);
+	}
+
+	function saveandback(){
+		db.inputtoDB(queryString);
+	}
     </script>
 
-	<a href="Home.html" onClick="alert(SaveAndExit)">Save And Go Back</a>
+	<a href="Home.html" onClick="saveandback()">Save And Go Back</a>
 </body>
 </html>
