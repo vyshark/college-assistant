@@ -6,17 +6,7 @@
 
 	<div id="ddmenu" align="right" style="display:none;position:absolute;right:0;bottom:0;border:solid #F00">
     <select id="menu" onChange="getValue()">
-			<option value="-"> - </option>
-    	<option value="CFC">CFC</option>
-        <option value="DS">DS</option>
-    	<option value="SE">SE</option>
-        <option value="MOS">MOS</option>
-        <option value="STOR">STOR</option>
-    	<option value="MM">MM</option>
-    	<option value="practicals:STOR">practicals:STOR</option>
-    	<option value="practicals:MOS">practicals:STOR</option>
-    	<option value="practicals:MM">practicals:STOR</option>
-    	<option value="practicals:DS">practicals:STOR</option>
+			
     </select>
     </div>
 
@@ -28,10 +18,17 @@
 	var queryString='';
 	var pseudoid;
 	var subj;
+	var subjectstring='';
 	var db = require('./db');
+	var subjects=db.getSubjects();
 	var thetable = db.retreiveFromDB('select * from TimeTable;');
 	document.getElementById('displaytable').innerHTML = db.printTable(thetable);
 
+subjectstring += "<option value='-'> - </option>";
+for (var inside in subjects) {
+	subjectstring += "<option value='" + subjects[inside] + "'>" + subjects[inside] + "</option>";
+}
+document.getElementById('menu').innerHTML = subjectstring;
 
 
 	$('document').ready(function(){
@@ -41,7 +38,7 @@
 					column++;
 					day=$(this).siblings().first().html();
 					var rowstring='#tableid th:nth-of-type(' + column + ')';
-					row=$(rowstring).html();// SOME WORK LEFT
+					row=$(rowstring).html();
 					$('#ddmenu').show();
 				//	var newdata=getValue();
 				//	alert(newdata);
@@ -58,7 +55,6 @@
 		subj = selected.options[selected.selectedIndex].text;
 		$(pseudoid).html(subj)
 		document.getElementById('ddmenu').style.display='none';
-		//alert(day + '..' + row + '..' + subj);
    queryString+="update TimeTable set " + row + "='"	+ subj + "' where Day='" + day + "';" ;
 	 alert(queryString);
 	}

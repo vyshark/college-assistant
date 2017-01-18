@@ -57,9 +57,27 @@ var retreiveSingleFromDB = function(thequery){
   var lolol=retreiveFromDB(thequery);
 return (db.printTable(lolol).split('<td>')[1].split('</td>')[0]);
 };
+
+var getSubjects = function(){
+var subjects=[];
+
+  var goti=retreiveFromDB('select * from Subjects;');
+
+//console.log(goti);
+      for (var i = 0; i < goti[0].values.length; i++) {
+
+            for (var x = 0; x < goti[0]['values'][i].length; x++)
+            {
+  subjects.push(goti[0]['values'][i][x]);
+            }
+  }
+  return subjects;
+};
+
 //-------------------vv MODULES vv ----------------
 module.exports.printTable = printTable;
 module.exports.inputtoDB = inputtoDB;
 module.exports.retreiveFromDB = retreiveFromDB;
 module.exports.retreiveSingleFromDB = retreiveSingleFromDB;
+module.exports.getSubjects = getSubjects;
 //--------------------^^ MODULES ^^ ----------------
