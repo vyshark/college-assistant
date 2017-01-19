@@ -5,16 +5,19 @@
 <body>
 
 	<div id="ddmenu" align="right" style="display:none;position:absolute;right:0;bottom:0;border:solid #F00">
+    <input type="text" placeholder="Enter New LR" id="LR" onChange="getLR()">
     <select id="menu" onChange="getValue()">
-			
     </select>
     </div>
 
 	<p id="displaytable"> </p>
 	<!-- ........vv SCRIPTS vv..........   -->
 	<script>
-	var day; //neeeded
-	var row; //needed
+	var prevSub;
+	var cday; //neeeded
+	var crow; //needed
+	var hrow;
+	var hday;
 	var queryString='';
 	var pseudoid;
 	var subj;
@@ -24,42 +27,92 @@
 	var thetable = db.retreiveFromDB('select * from TimeTable;');
 	document.getElementById('displaytable').innerHTML = db.printTable(thetable);
 
-subjectstring += "<option value='-'> - </option>";
-for (var inside in subjects) {
-	subjectstring += "<option value='" + subjects[inside] + "'>" + subjects[inside] + "</option>";
-}
-document.getElementById('menu').innerHTML = subjectstring;
+	subjectstring += "<option value='-'> - </option>";
+	for (var inside in subjects)
+	{
+		subjectstring += "<option value='" + subjects[inside] + "'>" + subjects[inside] + "</option>";
+	}
+	document.getElementById('menu').innerHTML = subjectstring;
 
-
-	$('document').ready(function(){
-			$('td').on('click', function(){
+	$('document').ready(function()
+	{
+			$('td').on('click', function()
+			{
 					pseudoid=$(this);
 					var column=$(this).siblings().addBack().index(this);
 					column++;
-					day=$(this).siblings().first().html();
+					cday=$(this).siblings().first().html();
 					var rowstring='#tableid th:nth-of-type(' + column + ')';
-					row=$(rowstring).html();
-					$('#ddmenu').show();
+					crow=$(rowstring).html();
+					if(crow=="Day")
+					{
+						alert("Can't edit days");
+					}
+					else
+					{
+						$('#ddmenu').show();
+						alert(cday+" "+crow);
+					}
 				//	var newdata=getValue();
 				//	alert(newdata);
+			});
+			$('td').hover(function()
+							{
+									prevSub=$(this).html();
+									pseudoid=$(this);
+									var column=$(this).siblings().addBack().index(this);
+									column++;
+									hday=$(this).siblings().first().html();
+									var rowstring='#tableid th:nth-of-type(' + column + ')';
+									hrow=$(rowstring).html();
+									column--;
+									if(hrow=="Day")
+										{
 
-
-	});
-
-
+										}
+									else
+										{
+											$(this).css('background-color','hotpink');
+											var col = "LR_"+column;
+											//Enter query to get LR from DB here with parameters below
+										//	db.retreiveSingleFromDB("select " + col + " from LectureRooms where Day='" + hday + "';");
+											$(this).html(db.retreiveSingleFromDB("select " + col + " from LectureRooms where Day='" + hday + "';"));
+										}
+							},
+						  function()
+						    {
+									$(this).css('background-color','#FFF');
+							  		$(this).html(prevSub);
+							});
 	})
+
+	function getLR()
+	{
+		var new_LR=document.getElementById('LR').value;
+		var thecheap=crow.split("_");
+		var theLR="LR_"+thecheap[1];
+	//	alert(new_LR);
+	//	alert(theLR+" "+cday);
+		db.inputtoDB("update LectureRooms set " + theLR +"='" + new_LR + "' where Day='" + cday + "';" );
+		//add query here to insert new LR into DB with above parameters
+		document.getElementById('ddmenu').style.display='none';
+	}
 
 	function getValue()
 	{
 		var selected = document.getElementById('menu');
 		subj = selected.options[selected.selectedIndex].text;
-		$(pseudoid).html(subj)
 		document.getElementById('ddmenu').style.display='none';
-   queryString+="update TimeTable set " + row + "='"	+ subj + "' where Day='" + day + "';" ;
-	 alert(queryString);
+		if(row!="Day")
+		{
+			$(pseudoid).html(subj);
+   			queryString+="update TimeTable set " + row + "='"	+ subj + "' where Day='" + day + "';" ;
+		}
+		alert(queryString);
 	}
 
-	function saveandback(){
+	function saveandback()
+	{
 		db.inputtoDB(queryString);
 	}
     </script>
