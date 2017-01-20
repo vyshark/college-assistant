@@ -25,7 +25,7 @@
 	var db = require('./db');
 	var subjects=db.getSubjects();
 	var thetable = db.retreiveFromDB('select * from TimeTable;');
-	document.getElementById('displaytable').innerHTML = db.printTable(thetable);
+	document.getElementById('displaytable').innerHTML = db.printUL(thetable);
 
 	subjectstring += "<option value='-'> - </option>";
 	for (var inside in subjects)

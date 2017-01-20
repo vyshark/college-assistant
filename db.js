@@ -73,9 +73,37 @@ var subjects=[];
   }
   return subjects;
 };
+var printUL = function(data){
+  var ulstring='<ul id="ulid">';
+  for (var inside in data[0]) {
+        for (var i = 0; i < data[0][inside].length; i++) {
+          if ( data[0][inside][i].constructor === Array )
+          {
+
+              for (var x = 0; x < data[0][inside][i].length; x++)
+              {
+//                if(x === 0) { tablestring+='<tr>'; }
+                ulstring+= '<li>' + data[0][inside][i][x] + '</li>';
+          //      if(x === (data[0][inside].length)) { tablestring+='</tr>'; }
+                                                                  }
+              }
+            else {
+
+                 }
+
+      }
+
+    }
+
+    ulstring+='</ul>';
+
+  //  console.log(tablestring);
+    return ulstring;
+};
 
 //-------------------vv MODULES vv ----------------
 module.exports.printTable = printTable;
+module.exports.printUL = printUL;
 module.exports.inputtoDB = inputtoDB;
 module.exports.retreiveFromDB = retreiveFromDB;
 module.exports.retreiveSingleFromDB = retreiveSingleFromDB;

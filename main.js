@@ -8,6 +8,7 @@ var BrowserWindow = electron.BrowserWindow;
 var Tray = electron.Tray;
 
 var Menu = electron.Menu;
+var keyboard = electron.globalShortcut;
 //--------------------^^ IMPORT MODULES ^^ -----------------
 
 // --------------------vv IMPORT files vv ------------------
@@ -63,6 +64,13 @@ function createTrayIcon ( ) {
 // Some APIs can only be used after this event occurs.
 app.on('ready', function(){
       createWindow();
+      /*globalShortcut.register('CommandOrControl+H',function(){
+        window.location.href="./Home.html";
+      });
+      globalShortcut.register('CommandOrControl+T',function(){
+        window.location.href="./TimeTable.html";
+      });*/
+
       createTrayIcon();
 });
 
