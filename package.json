@@ -1,15 +1,15 @@
 {
-  "name": "xaviers-student-guide",
+  "name": "CollegeAssistant",
   "version": "1.0.0",
   "description": "An app to help students with their college lives.",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
   },
-  "author": "",
+  "author": "VAPDU",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^1.4.1",
+    "electron": "^1.5.0",
     "sql.js": "^0.4.0"
   }
 }
