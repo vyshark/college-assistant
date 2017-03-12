@@ -1,0 +1,206 @@
+<!DOCTYPE HTML>
+<html>
+    <head><title>GPA calc</title>
+        <!--for better viewing experience in all types of devicecs-->
+        <meta name="viewport" content="width=device-width, inital scale=1.0" />
+        <!--Latest compiled and minified css-->
+        <link href="css/bootstrap.min.css" rel="stylesheet"></script>
+        <link href="css/mdb.min.css" rel="stylesheet"></script>
+        <link rel="stylesheet" href="css/bootCustom.css" />
+        <script>window.$ = window.jQuery = require("./js/jquery-3.1.1.min")</script>
+        <style>
+            body{
+                background-color: #0e0b16 ;
+                color: #e7dfdd;
+            }
+            
+            .jumbotron{
+                background-color: greenyellow;
+                display: none;
+                width: auto;
+                
+                
+            }
+            
+            .gpafld{
+                background-color: #4717f6;
+                width:80%;
+                padding: 5px;
+            }
+            a{
+                text-decoration: none;
+                color: #e7dfdd;
+            }
+            a:active{color:#e7dfdd;}
+            a:hover{color:#e7dfdd;}
+            a:visited{color:#e7dfdd;}
+            a:selected{color:#e7dfdd;}
+            
+        
+        </style>
+    </head>
+    <body>
+        <div class="navbar navbar-default navbar-fixed-top">
+ <!--Navbar--> 
+    <div class="container-fluid">
+    
+      <!--Div for the Logo-->
+      <div class="navbar-header navbar-left">
+       <img src="Logos/St-Xavier-logo.gif" width="52" height="50;" id="logoNav"  />
+       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
+       <span class=" glyphicon glyphicon-menu-hamburger"></span>
+             
+          </button>
+      </div>
+      
+      <div class=" collapse navbar-collapse navbar-right" id=																								  					"mainNavBar" style=" padding-right:15px">
+      	<ul class=" nav navbar-nav">
+        	<li class="active"><a href="TimeTable.html" style=" background-image: url(Logos/resr/cal_1.png); background-repeat:   	       				no-repeat; background-position:center;               		background-size:cover; width:50px; height:50px"></a	></li>
+            
+          <li ><a href="foyer/index.html" style=" background-image: url(Logos/resr/foyer_1.png); background-repeat:   	       				no-repeat; background-position:center;               		background-size:cover; width:50px; height:50px; padding:10px"></a></li>
+          
+            <li ><a href="gpa.html" style=" background-image: url(Logos/resr/gpa_1.png); background-repeat:   	       				no-repeat; background-position:center;               		background-size:cover; width:50px; height:50px; padding-right:20px"></a></li>
+            
+              <li ><a href="Real-Time.html" style=" background-image: url(Logos/resr/attendence.png); background-repeat:   	       				no-repeat; background-position:center;               		background-size:cover; width:50px; height:50px; padding:10px"></a></li>
+        </ul>
+      </div>
+      
+
+   
+    </div>
+    
+    
+    
+</div>
+         <!--creating a primary div which contains all data-->
+        <div class="container"><br><br><br>
+            <a href="index.html"><i class="glyphicon glyphicon-arrow-left"></i></a>
+             <!--page header div-->
+            <div class="page-header text-center"><h1>GPA Calculator</h1>
+                <input type="button" class="btn btn-warning btn-sm" value="CGPA" onClick="getCGPA();" id="getgp"></div>
+            
+                   <div class="jumbotron text-center animated zoomInUp" id="cgpdiv"><h1 id="cgpa">CGPA</h1></div>
+
+            <!--Divs for entering the subject marks with glyphicon-icon-->
+            <div class="row animated rubberBand"><!--Dividing the page into a 12 column row and using col-??-?? to assign columns to components-->
+<!--Form for Subject 1-->
+                <div class="col-lg-offset-1 col-lg-12 gpafld"><i class="glyphicon glyphicon-book"></i>
+                    <a href="#f1" data-toggle="collapse" id="sub1s"></a>
+
+                    <div id="f1" class="collapse"><form name="sub1">
+                      
+                        <input id="sub1c1" type="number" max="20" placeholder="CIA1" name="cia1" onChange="showGPA(this.form)">
+                        <input id="sub1c2" type="number" max="20" placeholder="CIA2" name="cia2" onChange="showGPA(this.form)">
+                        <input id="sub1es" type="number" max="80" placeholder="End Sem" name="exam" onChange="showGPA(this.form)">
+                        <input id="sub1ts" type="text" placeholder="Total of Subject" name="total" disabled>
+                        <input id="sub1gpa" type="text" placeholder="GPA of Subject" name="gpa" disabled>
+                        </form></div>
+
+                </div></div><br>
+<!--Form for Subject 2-->
+               <div class="row animated rubberBand">
+                <div class="col-lg-offset-1 col-lg-12 gpafld"><i class="glyphicon glyphicon-book"></i>
+                    <a href="#f2" data-toggle="collapse" id="sub2s"></a>
+
+                 <div id="f2" class="collapse"><form name="sub2">
+                    
+                        <input id="sub2c1" type="number" max="20" placeholder="CIA1" name="cia1" onChange="showGPA(this.form)">
+                        <input id="sub2c2" type="number" max="20" placeholder="CIA2" name="cia2" onChange="showGPA(this.form)">
+                        <input id="sub2es" type="number" max="80" placeholder="End Sem" name="exam" onChange="showGPA(this.form)">
+                        <input id="sub2ts" type="text" placeholder="Total of Subject" name="total" disabled>
+                        <input id="sub2gpa" type="text" placeholder="GPA of Subject" name="gpa" disabled>
+                     </form></div>
+
+                   </div></div><br>
+<!--Form for Subject 3-->
+            <div class="row animated rubberBand">
+                <div class="col-lg-offset-1 col-lg-12 gpafld"><i class="glyphicon glyphicon-book"></i>
+                    <a href="#f3" data-toggle="collapse" id="sub3s"></a>
+                
+                <div id="f3" class="collapse"><form name="sub3">
+		         
+                        <input id="sub3c1" type="number" max="20" placeholder="CIA1" name="cia1" onChange="showGPA(this.form)">
+                        <input id="sub3c2" type="number" max="20" placeholder="CIA2" name="cia2" onChange="showGPA(this.form)">
+                        <input id="sub3es" type="number" max="80" placeholder="End Sem" name="exam" onChange="showGPA(this.form)">
+                        <input id="sub3ts" type="text" placeholder="Total of Subject" name="total" disabled>
+                        <input id="sub3gpa" type="text" placeholder="GPA of Subject" name="gpa" disabled>
+                    </form></div>
+                
+                </div></div><br>
+<!--Form for Subject 4-->  
+            <div class="row animated rubberBand">
+                <div class="col-lg-offset-1 col-lg-12 gpafld"><i class="glyphicon glyphicon-book"></i>
+                    <a href="#f4" data-toggle="collapse" id="sub4s"></a>
+                
+                <div id="f4" class="collapse"><form name="sub4">
+		         
+                        <input id="sub4c1" type="number" max="20" placeholder="CIA1" name="cia1" onChange="showGPA(this.form)">
+                        <input id="sub4c2" type="number" max="20" placeholder="CIA2" name="cia2" onChange="showGPA(this.form)">
+                        <input id="sub4es" type="number" max="80" placeholder="End Sem" name="exam" onChange="showGPA(this.form)">
+                        <input id="sub4ts" type="text" placeholder="Total of Subject" name="total" disabled>
+                        <input id="sub4gpa" type="text" placeholder="GPA of Subject" name="gpa" disabled>
+                    </form></div>
+                
+                </div></div><br>
+<!--Form for Subject 5-->
+            <div class="row animated rubberBand">
+                <div class="col-lg-offset-1 col-lg-12 gpafld"><i class="glyphicon glyphicon-book"></i>
+                    <a href="#f5" data-toggle="collapse" id="sub5s"></a>
+                
+                 <div id="f5" class="collapse"><form name="sub5">
+		         
+                        <input id="sub5c1" type="number" max="20" placeholder="CIA1" name="cia1" onChange="showGPA(this.form)">
+                        <input id="sub5c2" type="number" max="20" placeholder="CIA2" name="cia2" onChange="showGPA(this.form)">
+                        <input id="sub5es" type="number" max="80" placeholder="End Sem" name="exam" onChange="showGPA(this.form)">
+                        <input id="sub5ts" type="text" placeholder="Total of Subject" name="total" disabled>
+                        <input id="sub5gpa" type="text" placeholder="GPA of Subject" name="gpa" disabled>
+                     </form></div>
+                
+                </div></div><br>
+<!--Form for Subject 6-->
+            <div class="row animated rubberBand">
+                <div class="col-lg-offset-1 col-lg-12 gpafld"><i class="glyphicon glyphicon-book"></i>
+                    <a href="#f6" data-toggle="collapse" id="sub6s"></a>
+                
+                <div id="f6" class="collapse"><form name="sub6">
+		          
+                        <input id="sub6c1" type="number" max="20" placeholder="CIA1" name="cia1" onChange="showGPA(this.form)">
+                        <input id="sub6c2" type="number" max="20" placeholder="CIA2" name="cia2" onChange="showGPA(this.form)">
+                        <input id="sub6es" type="number" max="80" placeholder="End Sem" name="exam" onChange="showGPA(this.form)">
+                        <input id="sub6ts" type="text" placeholder="Total of Subject" name="total" disabled>
+                        <input id="sub6gpa" type="text" placeholder="GPA of Subject" name="gpa" disabled>
+                    </form></div>
+                
+                </div></div>
+            
+            </div> 
+   
+        
+        
+        
+		<p id='testis'></p>
+
+        
+        
+<script src="js/jquery-3.1.1.js"></script>        
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script type="text/javascript" src="GPAcalc.js"></script>
+        <script>
+           $(document).ready(function(){
+               $("#getgp").click(function(){
+                    $("#cgpdiv").fadeToggle("slow");
+                });
+            });
+            
+            var subjects=db.getSubjects();
+            document.getElementById('sub1s').innerHTML = subjects[0];
+            document.getElementById('sub3s').innerHTML = subjects[1];
+            document.getElementById('sub2s').innerHTML = subjects[2];
+            document.getElementById('sub4s').innerHTML = subjects[3];
+            document.getElementById('sub5s').innerHTML = subjects[4];
+            document.getElementById('sub6s').innerHTML = subjects[5];
+            enterFromDB();
+        </script>
+    </body>
+</html>

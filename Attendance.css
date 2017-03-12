@@ -1,0 +1,107 @@
+@import url(http://fonts.googleapis.com/css?family=Patua+One|Open+Sans);
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  background: #0e0b16;
+}
+
+table {
+	position:relative;
+	top:40px;
+  border-collapse: separate;
+  background: #e7dfdd;
+  -moz-border-radius: 45px;
+  -webkit-border-radius: 45px;
+  border-radius: 45px;
+  margin: 50px auto;
+  -moz-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 20px -15px 20px #000;
+}
+table:hover{box-shadow: 0 0 25px #4717F6;}
+
+thead {
+  -moz-border-radius: 45px;
+  -webkit-border-radius: 45px;
+  border-radius: 45px;
+}
+
+thead th {
+  font-family: 'Patua One', cursive;
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff;
+  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
+  text-align: left;
+  padding: 20px;
+  background-size: 100%;
+  background-image: -moz-linear-gradient(#f00000, #f05e5e);
+  background-image: -webkit-linear-gradient(#f00000, #f05e5e);
+  background-image: linear-gradient(#f00000, #f05e5e);
+  border-top: 1px solid #858d99;
+  
+}
+thead th:first-child {
+  -moz-border-radius-topleft: 45px;
+  -webkit-border-top-left-radius: 45px;
+  border-top-left-radius: 45px;
+}
+thead th:last-child {
+  -moz-border-radius-topright: 45px;
+  -webkit-border-top-right-radius: 5px;
+  border-top-right-radius: 45px;
+}
+
+tbody tr td {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  color: #5f6062;
+  font-size: 13px;
+  padding: 20px 20px 20px 20px;
+  border-bottom: 1px solid #e0e0e0;
+  border-bottom-left-radius: 45px;
+  border-bottom-right-radius:90px;
+}
+
+tbody tr:nth-child(2n) {
+  background: #e7d9dd;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+  border-radius:45px;
+}
+tbody tr:last-child td:first-child {
+  -moz-border-radius-bottomleft: 45px;
+  -webkit-border-bottom-left-radius: 45px;
+  border-bottom-left-radius: 45px;
+    border-radius:45px;
+}
+tbody tr:last-child td:last-child {
+  -moz-border-radius-bottomright: 45px;
+  -webkit-border-bottom-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+tbody:hover > tr td {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+  opacity: 0.5;
+  /* uncomment for blur effect */
+  /* color:transparent;
+  @include text-shadow(0px 0px 2px rgba(0,0,0,0.8));*/
+}
+
+tbody:hover > tr:hover td {
+  text-shadow: none;
+  color: #2d2d2d;
+  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+  opacity: 1;
+}
+
+#s1, #s2, #s3, #s4, #s5, #s6 {
+  border: hidden;
+}

@@ -1,0 +1,69 @@
+<html>
+<head>
+	<script>window.$ = window.jQuery = require("./jquery.js")</script>
+</head>
+<body>
+
+	<div id="ddmenu" align="right" style="display:none;position:absolute;right:0;bottom:0;border:solid #F00">
+    <select id="menu" onChange="getValue()">
+			
+    </select>
+    </div>
+
+	<p id="displaytable"> </p>
+	<!-- ........vv SCRIPTS vv..........   -->
+	<script>
+	var day; //neeeded
+	var row; //needed
+	var queryString='';
+	var pseudoid;
+	var subj;
+	var subjectstring='';
+	var db = require('./db');
+	var subjects=db.getSubjects();
+	var thetable = db.retreiveFromDB('select * from TimeTable;');
+	document.getElementById('displaytable').innerHTML = db.printTable(thetable);
+
+subjectstring += "<option value='-'> - </option>";
+for (var inside in subjects) {
+	subjectstring += "<option value='" + subjects[inside] + "'>" + subjects[inside] + "</option>";
+}
+document.getElementById('menu').innerHTML = subjectstring;
+
+
+	$('document').ready(function(){
+			$('td').on('click', function(){
+					pseudoid=$(this);
+					var column=$(this).siblings().addBack().index(this);
+					column++;
+					day=$(this).siblings().first().html();
+					var rowstring='#tableid th:nth-of-type(' + column + ')';
+					row=$(rowstring).html();
+					$('#ddmenu').show();
+				//	var newdata=getValue();
+				//	alert(newdata);
+
+
+	});
+
+
+	})
+
+	function getValue()
+	{
+		var selected = document.getElementById('menu');
+		subj = selected.options[selected.selectedIndex].text;
+		$(pseudoid).html(subj)
+		document.getElementById('ddmenu').style.display='none';
+   queryString+="update TimeTable set " + row + "='"	+ subj + "' where Day='" + day + "';" ;
+	 alert(queryString);
+	}
+
+	function saveandback(){
+		db.inputtoDB(queryString);
+	}
+    </script>
+
+	<a href="Home.html" onClick="saveandback()">Save And Go Back</a>
+</body>
+</html>

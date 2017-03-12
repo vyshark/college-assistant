@@ -1,0 +1,147 @@
+<html>
+<head>
+<!--for better viewing experience in all types of devicecs-->
+<meta name="viewport" content="width=device-width, inital scale=1.0" />
+<!--Latest compiled and minified css-->
+
+<link rel="stylesheet" href="css/bootstrap.min.css"/>
+
+<!--Optional Theme-->
+<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="css/bootCustom.css" />
+<link rel="stylesheet" href="css/mdb.min.css" />
+
+    
+    <style>
+        .btn1{
+            display: none;
+        }
+    
+    </style>
+<script>window.$ = window.jQuery = require("./js/jquery-3.1.1.min.js")</script>
+<script type="text/javascript" src="BunkCalc.js"></script>
+<link rel="stylesheet" href="Attendance.css"/>
+</head>
+<body>
+ <div class="navbar navbar-default navbar-fixed-top">
+ <!--Navbar--> 
+    <div class="container-fluid">
+    
+      <!--Div for the Logo-->
+      <div class="navbar-header navbar-left">
+       <img src="Logos/St-Xavier-logo.gif" width="52" height="50;" id="logoNav"  />
+       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
+       <span class=" glyphicon glyphicon-menu-hamburger"></span>
+             
+          </button>
+      </div>
+      
+      <div class=" collapse navbar-collapse navbar-right" id=																								  					"mainNavBar" style=" padding-right:15px">
+      	<ul class=" nav navbar-nav">
+        	<li class="active"><a href="TimeTable.html" style=" background-image: url(Logos/resr/cal_1.png); background-repeat:   	       				no-repeat; background-position:center;               		background-size:cover; width:50px; height:50px"></a	></li>
+            
+          <li ><a href="foyer/index.html" style=" background-image: url(Logos/resr/foyer_1.png); background-repeat:   	       				no-repeat; background-position:center;               		background-size:cover; width:50px; height:50px; padding:10px"></a></li>
+          
+            <li ><a href="gpa.html" style=" background-image: url(Logos/resr/gpa_1.png); background-repeat:   	       				no-repeat; background-position:center;               		background-size:cover; width:50px; height:50px; padding-right:20px"></a></li>
+            
+              <li ><a href="Real-Time.html" style=" background-image: url(Logos/resr/attendence.png); background-repeat:   	       				no-repeat; background-position:center;               		background-size:cover; width:50px; height:50px; padding:10px"></a></li>
+        </ul>
+      </div>
+      
+
+   
+    </div>
+    
+    
+    
+</div>
+
+
+	<br><br><br><input type="button" style="float:left" value="Save in DB and Back" onClick="enterInDB()" class="btn btn-primary"/>
+    &nbsp;&nbsp;<a href="index.html"><i class="glyphicon glyphicon-arrow-left"></i></a>
+	<table class="animated bounceIn">
+    <tr>
+    <thead>
+    <th>Subject</th>
+    <th>Attended</th>
+    <th>Total</th>
+    <th>Attendance</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    
+    </tr>
+    </thead>
+
+    <tr id="R1" onClick="getButtons(this.id)">
+    <td>ITS 4.01</td>
+	<td><input type="text" id="num11" value="0" onChange="getAttend(1,this.id)" placeholder="Attended"></td>
+    <td><input type="text" id="num12" value="0" onChange="callAttend(this.id)" placeholder="Total Lectures"></td>
+    <td><input type="text" id="s1" name="ans"  placeholder="Current Attendance"></td>
+    <td><input class="btn1 btn-sm btn btn-success" type="button" id="b11" value="I Attended A Lecture" onClick="changeVal(this.id)"></td>
+    <td><input class="btn1 btn-sm btn btn-danger" type="button" id="b12" value="I Missed A Lecture" onClick="changeVal(this.id)"></td>
+    <td><input class="btn1 btn-sm btn btn-warning" type="button" id="b13" value="Bunk Stats" onClick="calcBunk(this.id)"></td>
+    </tr>
+
+    <tr id="R2" onClick="getButtons(this.id)">
+    <td>ITS 4.02</td>
+	<td><input type="text" id="num21" value="0" onChange="getAttend(1,this.id)" placeholder="Attended"></td>
+    <td><input type="text" id="num22" value="0" onChange="callAttend(this.id)" placeholder="Total Lectures"></td>
+    <td><input type="text" id="s2" name="ans"  placeholder="Current Attendance"></td>
+    <td><input class="btn1 btn-sm btn btn-success" type="button" id="b21" value="I Attended A Lecture" onClick="changeVal(this.id)"></td>
+    <td><input class="btn1 btn-sm btn btn-danger" type="button" id="b22" value="I Missed A Lecture" onClick="changeVal(this.id)"></td>
+    <td><input class="btn1 btn-sm btn  btn-warning" type="button" id="b23" value="Bunk Stats" onClick="calcBunk(this.id)"></td>
+    </tr>
+
+    <tr id="R3" onClick="getButtons(this.id)">
+    <td>ITS 4.03</td>
+	<td><input type="text" id="num31" value="0" onChange="getAttend(1,this.id)" placeholder="Attended"></td>
+    <td><input type="text" id="num32" value="0" onChange="callAttend(this.id)" placeholder="Total Lectures"></td>
+    <td><input type="text" id="s3" name="ans"  placeholder="Current Attendance"></td>
+    <td><input class="btn1 btn-sm btn btn-success" type="button" id="b31" value="I Attended A Lecture" onClick="changeVal(this.id)"></td>
+    <td><input class="btn1 btn-sm btn btn-danger" type="button" id="b32" value="I Missed A Lecture" onClick="changeVal(this.id)"></td>
+    <td><input class="btn1 btn-sm btn btn-warning" type="button" id="b33" value="Bunk Stats" onClick="calcBunk(this.id)"></td>
+    </tr>
+
+    <tr id="R4" onClick="getButtons(this.id)">
+    <td>ITS 4.04</td>
+	<td><input type="text" id="num41" value="0" onChange="getAttend(1,this.id)" placeholder="Attended"></td>
+    <td><input type="text" id="num42" value="0" onChange="callAttend(this.id)" placeholder="Total Lectures"></td>
+    <td><input type="text" id="s4" name="ans"  placeholder="Current Attendance"></td>
+    <td><input class="btn1 btn-sm btn btn-success" type="button" id="b41" value="I Attended A Lecture" onClick="changeVal(this.id)"></td>
+    <td><input class="btn1 btn-sm btn btn-danger" type="button" id="b42" value="I Missed A Lecture" onClick="changeVal(this.id)"></td>
+    <td><input class="btn1 btn-sm btn btn-warning" type="button" id="b43" value="Bunk Stats" onClick="calcBunk(this.id)"></td>
+    </tr>
+
+    <tr id="R5" onClick="getButtons(this.id)">
+    <td>ITS 4.05</td>
+	<td><input type="text" id="num51" value="0" onChange="getAttend(1,this.id)" placeholder="Attended"></td>
+    <td><input type="text" id="num52" value="0" onChange="callAttend(this.id)" placeholder="Total Lectures"></td>
+    <td><input type="text" id="s5" name="ans"  placeholder="Current Attendance"></td>
+    <td><input class="btn1 btn-sm btn btn-success" type="button" id="b51" value="I Attended A Lecture" onClick="changeVal(this.id)"></td>
+    <td><input class="btn1 btn-sm btn btn-danger" type="button" id="b52" value="I Missed A Lecture" onClick="changeVal(this.id)"></td>
+    <td><input class="btn1 btn-sm btn btn-warning" type="button" id="b53" value="Bunk Stats" onClick="calcBunk(this.id)"></td>
+    </tr>
+
+    <tr id="R6" onClick="getButtons(this.id)">
+    <td>ITS 4.06</td>
+	<td><input type="text" id="num61" value="0" onChange="getAttend(1,this.id)" placeholder="Attended"></td>
+    <td><input type="text" id="num62" value="0" onChange="callAttend(this.id)" placeholder="Total Lectures"></td>
+    <td><input type="text" id="s6" name="ans"  placeholder="Current Attendance"></td>
+    <td><input class="btn1 btn-sm btn btn-success" type="button" id="b61" value="I Attended A Lecture" onClick="changeVal(this.id)"></td>
+    <td><input class="btn1 btn-sm btn btn-danger" type="button" id="b62" value="I Missed A Lecture" onClick="changeVal(this.id)"></td>
+    <td><input class="btn1 btn-sm btn btn-warning" type="button" id="b63" value="Bunk Stats" onClick="calcBunk(this.id)"></td>
+    </tr>
+
+
+<script>
+enterFromDB();
+</script>
+
+    <script src="js/index.js"></script>
+    <script src="js/jquery-3.1.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+</body>
+</html>

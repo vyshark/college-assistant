@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Foyer Assistant</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/mdb.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+    <!-- Plugin CSS -->
+    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="css/creative.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<link rel="stylesheet" href="../css/bootCustom.css">
+ <style>
+    .table1{border: 0 !important;}
+    
+    input{text-align: center;}
+    
+</style>
+<script>window.$ = window.jQuery = require("./vendor/jquery/jquery.min.js")</script>
+</head>
+
+<body id="page-top" style="background: #0e0b16;">
+
+  <div class="navbar navbar-default navbar-fixed-top">
+ <!--Navbar--> 
+    <div class="container-fluid">
+    
+      <!--Div for the Logo-->
+      <div class="navbar-header navbar-left">
+       <img src="../Logos/St-Xavier-logo.gif" width="52" height="50;" id="logoNav"  />
+       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
+       <span class=" glyphicon glyphicon-menu-hamburger"></span>
+             
+          </button>
+      </div>
+      
+      <div class=" collapse navbar-collapse navbar-right" id=																								  					"mainNavBar" style=" padding-right:15px">
+      	<ul class=" nav navbar-nav">
+        	<li class="active"><a href="../TimeTable.html" style=" background-image: url(../Logos/resr/cal_1.png); background-repeat:   	       				no-repeat; background-position:center;               		background-size:cover; width:50px; height:50px"></a	></li>
+            
+          <li ><a href="index.html" style=" background-image: url(../Logos/resr/foyer_1.png); background-repeat:   	       				no-repeat; background-position:center;               		background-size:cover; width:50px; height:50px; padding:10px"></a></li>
+          
+            <li ><a href="../gpa.html" style=" background-image: url(../Logos/resr/gpa_1.png); background-repeat:   	       				no-repeat; background-position:center;               		background-size:cover; width:50px; height:50px; padding-right:20px"></a></li>
+            
+              <li ><a href="../Real-Time.html" style=" background-image: url(../Logos/resr/attendence.png); background-repeat:   	       				no-repeat; background-position:center;               		background-size:cover; width:50px; height:50px; padding:10px"></a></li>
+        </ul>
+      </div>
+      
+
+   
+    </div>
+    
+    
+    
+</div>
+
+    
+
+    <header>
+        <div class="header-content">
+            <a href="../index.html"><i class="glyphicon glyphicon-arrow-left"></i></a>
+            <div class="header-content-inner">
+                <h1 id="homeHeading">Foyer assistant</h1>
+                <hr>
+                <p style="color:#ff6961"><strong>Are you bored of eating the same thing everyday? or are you the one who has tried everything and doesn't know what to eat, or you're simply someone with a bit of cash and don't know what to do with it? Let FA clear all those dilemmas for you :)</strong></p>
+                <a href="#about" class="btn btn-primary btn-xl page-scroll" style="background:#a239ca">Find Out More</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="bg-primary" id="about" style="background:#0e0b16; color:#e7dfdd;">
+        <div class="container" style="background:#0e0b16">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2 class="section-heading">How is your wallet feeling today?</h2>
+                    <hr class="light">
+                    <p class="text-faded">Insert the amount of money you wish to spend and FA will help you decide which dishes to choose from..</p><input class="input-lg" style="color:e7dfdd" type="text" id="budget"/>
+                    <a href="#services" class="page-scroll btn btn-default btn-xl sr-button" style="background:#a239ca" onclick="getDish(document.getElementById('budget').value);">Get Started!</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" style="background-color:#4717f6; color:#e7dfdd;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">At Your Service</h2>
+                    <hr class="primary"><br>
+                </div>
+            </div>
+            <p class="col-lg-9 col-lg-offset-2" id="listid"></p>
+        </div>
+        <br><br>
+    <div class="container">
+        <div class = "row">    
+            <div class="col-md-offset-4 col-lg--offset-4 col-lg-4 col-md-7 text-center" style="position:relative; bottom:80px;" id="love">
+                        <div class="service-box">
+                            <i class="fa fa-4x fa-heart text-primary sr-icons animated bounce infinite"></i>
+                            <h3>Made with Love</h3>
+                            <p class="text-muted" style="color:#ff6961">Only dishes made with love will get you through autonomy :)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+   
+
+    <!-- jQuery -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery/jquery.easing.min.js"></script>
+    <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="js/creative.min.js"></script>
+
+    <script>
+	var db = require('./db');
+	
+    function getDish(data)
+    {
+        //alert(data);
+        var dish1 = parseInt(data)-5;
+        //alert(dish1);
+        var dish2 = parseInt(data)+5;
+        //alert(dish2);
+        var thedish = db.retreiveFromDB('select * from Dishes where price between '+dish1+' and '+dish2+';');
+        document.getElementById('listid').innerHTML = db.printTable(thedish);
+        
+    }
+    </script>
+
+</body>
+
+</html>

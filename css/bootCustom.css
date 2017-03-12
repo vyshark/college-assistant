@@ -1,0 +1,25 @@
+@charset "utf-8";
+.navbar{
+	background: #0e0b16;
+	height:30px;
+	border-color:transparent;
+	}/* CSS Document */
+
+.navbar .active{
+	border-bottom-color:#00F;
+	}
+	
+.li>a{
+	background-color:#0F0;
+	}
+#logoNav{
+	border-radius:0;
+	border:hidden;
+	padding-bottom:none;
+	}
+#DivCol{
+	position:absolute;
+	top=50%;
+	left:50%;
+	
+	}

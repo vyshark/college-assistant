@@ -1,0 +1,75 @@
+<html>
+<script type="text/javascript" src="GPAcalc.js">
+</script>
+<body>
+
+	<input type="button" style="float:left" value="back" onclick="enterInDB()"><br>
+	<form name="sub1">
+		<span id="sub1s"> </span>
+	<input id="sub1c1" type="number" max="20" placeholder="CIA1" name="cia1" onChange="showGPA(this.form)">
+    <input id="sub1c2" type="number" max="20" placeholder="CIA2" name="cia2" onChange="showGPA(this.form)">
+    <input id="sub1es" type="number" max="80" placeholder="End Sem" name="exam" onChange="showGPA(this.form)">
+    <input id="sub1ts" type="text" placeholder="Total of Subject" name="total">
+    <input id="sub1gpa" type="text" placeholder="GPA of Subject" name="gpa">
+    </form>
+
+    <form name="sub2">
+		<span id="sub2s"> </span>
+	<input id="sub2c1" type="number" max="20" placeholder="CIA1" name="cia1" onChange="showGPA(this.form)">
+    <input id="sub2c2" type="number" max="20" placeholder="CIA2" name="cia2" onChange="showGPA(this.form)">
+    <input id="sub2es" type="number" max="80" placeholder="End Sem" name="exam" onChange="showGPA(this.form)">
+    <input id="sub2ts" type="text" placeholder="Total of Subject" name="total">
+    <input id="sub2gpa" type="text" placeholder="GPA of Subject" name="gpa">
+    </form>
+
+    <form name="sub3">
+		<span id="sub3s"> </span>
+	<input id="sub3c1" type="number" max="20" placeholder="CIA1" name="cia1" onChange="showGPA(this.form)">
+    <input id="sub3c2" type="number" max="20" placeholder="CIA2" name="cia2" onChange="showGPA(this.form)">
+    <input id="sub3es" type="number" max="80" placeholder="End Sem" name="exam" onChange="showGPA(this.form)">
+    <input id="sub3ts" type="text" placeholder="Total of Subject" name="total">
+    <input id="sub3gpa" type="text" placeholder="GPA of Subject" name="gpa">
+    </form>
+
+    <form name="sub4">
+		<span id="sub4s"> </span>
+	<input id="sub4c1" type="number" max="20" placeholder="CIA1" name="cia1" onChange="showGPA(this.form)">
+    <input id="sub4c2" type="number" max="20" placeholder="CIA2" name="cia2" onChange="showGPA(this.form)">
+    <input id="sub4es" type="number" max="80" placeholder="End Sem" name="exam" onChange="showGPA(this.form)">
+    <input id="sub4ts" type="text" placeholder="Total of Subject" name="total">
+    <input id="sub4gpa" type="text" placeholder="GPA of Subject" name="gpa">
+    </form>
+
+    <form name="sub5">
+		<span id="sub5s"> </span>
+	<input id="sub5c1" type="number" max="20" placeholder="CIA1" name="cia1" onChange="showGPA(this.form)">
+    <input id="sub5c2" type="number" max="20" placeholder="CIA2" name="cia2" onChange="showGPA(this.form)">
+    <input id="sub5es" type="number" max="80" placeholder="End Sem" name="exam" onChange="showGPA(this.form)">
+    <input id="sub5ts" type="text" placeholder="Total of Subject" name="total">
+    <input id="sub5gpa" type="text" placeholder="GPA of Subject" name="gpa">
+    </form>
+
+	<form name="sub6">
+		<span id="sub6s"> </span>
+	<input id="sub6c1" type="number" max="20" placeholder="CIA1" name="cia1" onChange="showGPA(this.form)">
+    <input id="sub6c2" type="number" max="20" placeholder="CIA2" name="cia2" onChange="showGPA(this.form)">
+    <input id="sub6es" type="number" max="80" placeholder="End Sem" name="exam" onChange="showGPA(this.form)">
+    <input id="sub6ts" type="text" placeholder="Total of Subject" name="total">
+    <input id="sub6gpa" type="text" placeholder="GPA of Subject" name="gpa">
+    </form>
+
+
+    <input type="text" placeholder="CGPA" onDblClick="getCGPA()" id="cgpa">
+		<p id='testis'></p>
+		<script>
+var subjects=db.getSubjects();
+document.getElementById('sub1s').innerHTML = subjects[0];
+document.getElementById('sub3s').innerHTML = subjects[1];
+document.getElementById('sub2s').innerHTML = subjects[2];
+document.getElementById('sub4s').innerHTML = subjects[3];
+document.getElementById('sub5s').innerHTML = subjects[4];
+document.getElementById('sub6s').innerHTML = subjects[5];
+enterFromDB();
+</script>
+</body>
+</html>

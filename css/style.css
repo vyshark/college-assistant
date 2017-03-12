@@ -1,0 +1,82 @@
+
+body{
+    background-color: #373737;
+    position: fixed;
+    overflow-y: hidden;
+}
+
+
+a{
+    text-decoration: none;
+}
+
+h1{
+    color:black; 
+    font-family:'Lucida Console';
+    position: relative;
+    left: 250px;
+}
+
+#dv_btn{
+    position: relative;
+    top: 100px;
+    left: 7%;
+    animation: fadein 2s;
+    overflow: visible;
+    height: 70vh;
+}
+
+
+
+
+@keyframes fadein{
+      from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+
+.icon{
+        position: relative; 
+         
+        align-content: center;
+        overflow: visible;
+        
+}
+
+.anim{
+    transform:  scale3D(1,1,1); 
+    transition: transform .3s ease;
+    
+}
+
+.anim:hover{
+    transform:  scale3D(1.2,1.2,1); 
+}
+
+#icon1{
+    background-image: url(../Logos/dvbg/attendance.jpeg);
+    background-size: cover;
+    width: 20%;
+    height: 80vh;
+}
+#icon2{
+    background-image: url(../Logos/dvbg/tt.png) !important;
+    background-size: cover;
+    width: 60%;
+    height: 35vh;
+}
+#icon3{
+    background-image: url(../Logos/dvbg/gpa.jpg) !important;
+    background-size: cover;
+    width: 25%;
+    height: 40vh;
+}
+#icon4{
+    background-image: url(../Logos/dvbg/foyer.jpg) !important;
+    background-size: cover;
+    width: 27%;
+    height: 40vh;
+}

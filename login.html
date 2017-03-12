@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head><title>LOGIN</title>
+    
+    <script>window.$ = window.jQuery = require("./js/jquery-3.1.1.js")</script>
+    <script>require("./main.js")</script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="main.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <style>
+        img{
+            border-radius:100px;
+        }
+        
+        body{
+            background-color: #0e0b16;
+            color: #e7dfdd;
+        }
+        
+        #log{
+            background-color: #4717f6;
+        }
+    </style>
+    </head>
+    <body>
+        <div class="container">
+            <br>
+            <img src="art/tray.ico" class="img-responsive center-block animated bounceIn">
+            <br>
+            <div class="jumbotron text-center animated flipInX" id="log">
+                <input type="text" id="name" placeholder="Enter Username" class="text-center">
+                <input type="password" id="pass" placeholder="Enter Password" class="text-center">
+                <button class="btn btn-sm btn-warning" onclick="log()">Login</button>
+            </div>
+        </div>
+    <script type="text/javascript">
+        var db = require('./db');
+        function log(){
+            
+            var n = document.getElementById('name').value;
+            var p = document.getElementById('pass').value;
+        
+            var string = db.retreiveSingleFromDB("Select Password from login where Name = '"+n+"';");
+            //alert(string);
+            if(string==p)
+                {//alert("Valid User");
+                    const {width, height} = electron.screen.getPrimaryDisplay().workAreaSize;
+                   // window.open('file://' + __dirname + '/index.html' ,{width1, height1, backgroundColor: '#0e0b16'});
+                    //createWindow(width,height,'/index.html');
+                    //mainWindow = new BrowserWindow({width, height, backgroundColor: '#0e0b16'});
+                    //mainWindow.loadURL('file://' + __dirname + '/index.html');
+                    
+                    
+                    const {BrowserWindow,mainWindow} = require('electron').remote
+                    let win = new BrowserWindow({width, height, backgroundColor: '#0e0b16'})
+                    win.loadURL('file://' + __dirname + '/index.html')
+                }
+            else{
+                alert("Invalid");
+            }
+        }
+        
+
+        
+        </script>
+    </body>
+</html>
