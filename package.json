@@ -9,7 +9,7 @@
   "author": "VAPDU",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^1.5.0",
+    "electron": "^9.1.0",
     "sql.js": "^0.4.0"
   }
 }
